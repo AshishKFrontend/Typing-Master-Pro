@@ -1,0 +1,494 @@
+/* =========================================
+MODERN TYPING MASTER THEME
+=========================================
+*/
+
+:root {
+    /* --- Modern Palette: Deep Space Blue & Neon Gold --- */
+    --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    --panel-bg: rgba(20, 20, 35, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(10px);
+    
+    /* --- Typography Colors --- */
+    --text-main: #e0e6ed;
+    --text-muted: #94a3b8;
+    --text-dim: #475569;
+    
+    /* --- Status Colors --- */
+    --highlight: #ffd700; /* Gold Neon */
+    --highlight-glow: rgba(255, 215, 0, 0.5);
+    --error: #ff4757;
+    --success: #2ed573;
+    
+    /* --- Shadows & Transitions --- */
+    --shadow-soft: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* --- Sizing & Radius --- */
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --font-mono: 'Roboto Mono', monospace;
+}
+
+/* --- 1. Global Reset & Base Styles --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    overflow: hidden; 
+}
+
+/* --- 2. Custom Scrollbars --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- 3. Layout Structures --- */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 4. Sidebar Styles --- */
+.sidebar {
+    background: var(--panel-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: var(--glass-blur);
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;      
+    height: 100%;           
+}
+
+.sidebar-fixed {
+    flex-shrink: 0;
+    margin-bottom: 10px;
+}
+
+.sidebar-scrollable {
+    flex-grow: 1;       
+    overflow-y: auto;   
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 9px; 
+}
+
+.sidebar-scrollable::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    color: var(--text-muted);
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+/* --- 5. UI Components (Buttons & Settings) --- */
+.setting-box {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: var(--radius-md);
+    display: flex;
+    transition: var(--transition);
+    border: 1px solid transparent;
+    justify-content: space-around;
+}
+
+.setting-box:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.setting-box label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.setting-box input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    outline: none;
+    width: 100%;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.setting-box input:focus {
+    border-color: var(--highlight);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#restart-btn, #sound-btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid var(--highlight);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+    color: var(--highlight);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+/* --- 6. Lesson Cards --- */
+.lesson-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    padding: 16px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+    position: relative;
+}
+
+.lesson-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.lesson-card.active {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: var(--highlight);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+}
+
+.l-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: block;
+    color: var(--text-main);
+}
+
+.lesson-card.active .l-title { color: var(--highlight); }
+
+.l-keys {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.key-badge {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.lesson-card.active .key-badge {
+    background: var(--highlight);
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+/* --- 7. Main Typing Area --- */
+.main-area {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--panel-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-soft);
+    padding: 40px;
+    justify-content: flex-start;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.2);
+    padding: 15px 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 1px solid var(--glass-border);
+}
+
+.stats span {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+#wpm, #timer, #acc {
+    color: var(--highlight);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.typing-box {
+    position: relative;
+    font-family: var(--font-mono);
+    font-size: 28px;
+    line-height: 50px; 
+    color: var(--text-dim);
+    word-break: break-word; 
+    white-space: pre-wrap;
+    max-height: 50vh;   
+    overflow-y: auto;  
+    padding-right: 15px; 
+}
+
+.typing-box::-webkit-scrollbar-thumb {
+    background: var(--highlight);
+}
+
+/* --- 8. Typing Logic (Letters & Caret) --- */
+.letter {
+    position: relative;
+    transition: color 0.1s ease;
+}
+
+.letter.correct {
+    color: var(--text-main);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.letter.incorrect {
+    color: var(--error);
+    text-decoration: underline wavy;
+    text-decoration-thickness: 2px;
+    background: rgba(255, 71, 87, 0.1);
+    border-radius: 2px;
+}
+
+#caret {
+    position: absolute;
+    width: 3px;
+    height: 38px;
+    background-color: var(--highlight);
+    border-radius: 4px;
+    transition: left 0.1s linear, top 0.1s linear;
+    animation: blink 1s infinite;
+    z-index: 10;
+    box-shadow: 0 0 10px var(--highlight), 0 0 20px var(--highlight);
+    pointer-events: none;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+#input-field { 
+    position: absolute; 
+    opacity: 0; 
+    z-index: -100; 
+}
+
+/* --- 9. Overlay Styles --- */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 12, 41, 0.9);
+    backdrop-filter: blur(8px);
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    z-index: 100;
+    animation: zoomIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#result-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #ffd700, #ffaa00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+#result-stats {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.overlay button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0f0c29;
+    background: var(--highlight);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.overlay button:hover {
+    transform: scale(1.05);
+    background: #fff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+/* Portrait Mode (Mobile) */
+@media (max-width: 768px) and (orientation: portrait) {
+    body { align-items: flex-start; overflow-y: auto; }
+    .container { display: flex; flex-direction: column; width: 100%; height: auto; }
+    .main-area { order: 1; padding: 20px; }
+    .typing-box { font-size: 18px; line-height: 32px; max-height: 35vh; }
+    #caret { height: 24px; }
+    .sidebar { order: 2; height: auto; }
+    .sidebar-scrollable { max-height: 250px; }
+    .sidebar h2 { display: none; }
+    .setting-box input { width: 70px; }
+}
+
+/* =========================================
+   MOBILE LANDSCAPE FIX (COMPRESSED MODE)
+   ========================================= 
+*/
+@media (max-height: 500px) and (orientation: landscape) {
+    
+    body {
+        /* Scroll band karein taaki puri app ek screen me fit ho */
+        overflow: hidden; 
+        align-items: flex-start; /* Top se start karein taaki kuch cut na ho */
+        padding-top: 5px;
+    }
+
+    .container {
+        /* 'dvh' unit browser ke address bar ko ignore karke actual size leta hai */
+        height: 98dvh; 
+        width: 98%; /* Thoda side gap */
+        grid-template-columns: 160px 1fr; /* Sidebar ko patla kiya */
+        gap: 10px; /* Beech ka gap kam kiya */
+    }
+
+    /* --- Sidebar Compression --- */
+    .sidebar {
+        padding: 8px;
+    }
+    
+    .sidebar h2 {
+        display: none; /* Mobile landscape me heading hata di space bachane ke liye */
+    }
+
+    .setting-box {
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+    
+    #restart-btn, #sound-btn {
+        width: 2.2rem;  /* Buttons chote kiye */
+        height: 2.2rem;
+        font-size: 1rem;
+    }
+
+    .lesson-card {
+        padding: 6px 10px; /* Lesson list ko compact kiya */
+        margin-bottom: 4px;
+    }
+    
+    .l-title {
+    font-weight: 600;
+    font-size: 0.7rem;
+    display: block;
+    color: var(--text-main);
+}
+    .l-keys {
+        display: none; /* Sirf lesson ka naam dikhayenge, keys nahi (space bachega) */
+    }
+
+    /* --- Main Area Compression --- */
+    .main-area {
+        padding: 10px 15px; /* Padding drastically kam ki */
+        border-radius: 10px;
+    }
+
+    .user-credit {
+        font-size: 0.6rem; /* Credit text chota */
+        margin-bottom: 2px;
+    }
+
+    .stats {
+        padding: 5px 10px;
+        margin-bottom: 8px; /* Stats bar ka gap kam kiya */
+        border-radius: 8px;
+    }
+    
+    .stats span {
+        font-size: 0.85rem; /* Text size adjust */
+    }
+
+    /* --- Typing Area Logic Safe --- */
+    .typing-box {
+        font-size: 1.8rem; /* Font size readable but chota */
+        line-height: 2.5rem; 
+        max-height: 55dvh; /* Height ko screen ke hisaab se restrict kiya */
+        margin-top: 0;
+    }
+    
+    #caret {
+        height: 1.4rem; /* Caret ka size font ke hisaab se adjust */
+    }
+}

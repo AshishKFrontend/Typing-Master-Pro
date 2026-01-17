@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master Pro - Ultimate Practice</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-fixed">
+                <h2>Controls</h2>
+                <div class="setting-box">
+                    <button id="restart-btn" onclick="restartLesson()" title="Restart Lesson">⟳</button>
+                    <button id="sound-btn" onclick="toggleSound()" title="Toggle Sound">🔊</button>
+                </div>
+                <hr class="divider">
+                <h2>Lessons</h2>
+            </div>
+
+            <nav class="sidebar-scrollable">
+                <div class="lesson-card active" onclick="loadLesson(0)"><span class="l-title">L1: Home (F, J)</span></div>
+                <div class="lesson-card" onclick="loadLesson(1)"><span class="l-title">L2: Home (D, K)</span></div>
+                <div class="lesson-card" onclick="loadLesson(2)"><span class="l-title">L3: Home (S, L)</span></div>
+                <div class="lesson-card" onclick="loadLesson(3)"><span class="l-title">L4: Home (A, ;)</span></div>
+                <div class="lesson-card" onclick="loadLesson(4)"><span class="l-title">L5: Home Mix (G, H)</span></div>
+                <div class="lesson-card" onclick="loadLesson(5)"><span class="l-title">L6: Upper (R, U, E, Y)</span></div>
+                <div class="lesson-card" onclick="loadLesson(6)"><span class="l-title">L7: Upper (Q, W, I, O, P)</span></div>
+                <div class="lesson-card" onclick="loadLesson(7)"><span class="l-title">L8: Upper Mix Words</span></div>
+                <div class="lesson-card" onclick="loadLesson(8)"><span class="l-title">L9: Bottom (V, M, C, N)</span></div>
+                <div class="lesson-card" onclick="loadLesson(9)"><span class="l-title">L10: Bottom (Z, X, B, /)</span></div>
+                <div class="lesson-card" onclick="loadLesson(10)"><span class="l-title">L11: Sentence Master</span></div>
+                <div class="lesson-card" onclick="loadLesson(11)"><span class="l-title">L12: Pro Challenge</span></div>
+                <div class="lesson-card" onclick="loadLesson(12)"><span class="l-title">L13: Business Email</span></div>
+                <div class="lesson-card" onclick="loadLesson(13)"><span class="l-title">L14: Tech & Coding</span></div>
+                <div class="lesson-card" onclick="loadLesson(14)"><span class="l-title">L15: Scientific Data</span></div>
+                <div class="lesson-card" onclick="loadLesson(15)"><span class="l-title">L16: Philosophy</span></div>
+                <div class="lesson-card" onclick="loadLesson(16)"><span class="l-title">L17: MEGA PRO</span></div>
+                <div class="lesson-card" onclick="loadLesson(17)"><span class="l-title">L18: Paragraph 1</span></div>
+                <div class="lesson-card" onclick="loadLesson(18)"><span class="l-title">L19: Paragraph 2</span></div>
+                <div class="lesson-card" onclick="loadLesson(19)"><span class="l-title">L20: Paragraph 3</span></div>
+            </nav>
+        </aside>
+
+        <section class="main-area" onclick="focusInput()">
+            <header class="user-credit">
+                Created by <span class="heart-blink">❤️</span> Ashish Kumar
+            </header>
+
+            <div class="stats">
+                <span id="timer">Time: 0s</span>
+                <span id="wpm">WPM: 0</span>
+                <span id="acc">Acc: 100%</span>
+            </div>
+
+            <div class="typing-box" id="display-area">
+                <div id="caret"></div>
+                </div>
+
+            <div class="overlay" id="result-overlay">
+                <h1 id="result-title">Lesson Complete!</h1>
+                <p id="result-stats">WPM: 0 | Acc: 0%</p>
+                <button onclick="restartLesson()">
+                    <span>Try Again</span> 
+                    <span class="btn-icon">⟳</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <input type="text" 
+           id="input-field" 
+           autocomplete="off" 
+           autocorrect="off" 
+           autocapitalize="off" 
+           spellcheck="false"
+           aria-hidden="true">
+
+    <script src="script.js"></script>
+</body>
+</html>
