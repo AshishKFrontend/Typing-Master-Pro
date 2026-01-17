@@ -14,7 +14,7 @@
 <img width="1907" height="937" alt="Screenshot 2026-01-17 162844" src="https://github.com/user-attachments/assets/04dda85b-204c-4e90-9ecc-62e7c7bad288" />
 
 ## 🚀 Live Demo
-### [👉 Click Here to Try the App](https://your-username.github.io/your-repo-name/)
+### [👉 Click Here to Try the App](https://ashishkfrontend.github.io/Typing-Master-Pro/)
 *(Recommended: Open on Mobile in Landscape Mode with a Keyboard attached)*
 
 ---
